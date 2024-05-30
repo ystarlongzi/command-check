@@ -1,6 +1,6 @@
 {
   "name": "cmd-check",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Checks whether the command exists and whether it matches the specified version.",
   "main": "./lib/index.js",
   "bin": "./lib/cli.js",
