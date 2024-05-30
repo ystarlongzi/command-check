@@ -1,0 +1,63 @@
+{
+  "name": "command-check",
+  "version": "1.0.0",
+  "description": "Checks whether the command exists and whether it matches the specified version.",
+  "main": "./lib/index.js",
+  "bin": "./lib/cli.js",
+  "scripts": {
+    "dev": "ts-node ./src/cli.ts",
+    "clean": "rimraf ./lib/",
+    "build": "npm run clean && tsc",
+    "eslint": "eslint --cache --fix --format codeframe",
+    "check-types": "tsc --noEmit"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "lib/",
+    "src/"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -E GIT_PARAMS",
+    "pre-push": "yarn check-types"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "yarn eslint"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "ora": "^5.4.1",
+    "semver": "^7.6.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/fs-extra": "^11.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-formatter-codeframe": "^7.32.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "lint-staged": "^15.2.5",
+    "prettier": "^2.8.4",
+    "rimraf": "^5.0.7",
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5",
+    "yorkie": "^2.0.0"
+  },
+  "commandCheck": {
+    "node": true
+  },
+  "repository": "git@github.com:ystarlongzi/command-check.git",
+  "author": "流采 <zhangzilong.zzl@163.com>",
+  "license": "MIT"
+}
