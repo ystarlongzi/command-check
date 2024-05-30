@@ -1,5 +1,5 @@
 {
-  "name": "command-check",
+  "name": "cmd-check",
   "version": "1.0.0",
   "description": "Checks whether the command exists and whether it matches the specified version.",
   "main": "./lib/index.js",
@@ -8,6 +8,7 @@
     "dev": "ts-node ./src/cli.ts",
     "clean": "rimraf ./lib/",
     "build": "npm run clean && tsc",
+    "release": "npm run build && release-it --",
     "eslint": "eslint --cache --fix --format codeframe",
     "check-types": "tsc --noEmit"
   },
@@ -41,6 +42,7 @@
     "@types/fs-extra": "^11.0.4",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
+    "auto-changelog": "^2.2.1",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-formatter-codeframe": "^7.32.1",
@@ -48,6 +50,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "lint-staged": "^15.2.5",
     "prettier": "^2.8.4",
+    "release-it": "^14.2.2",
     "rimraf": "^5.0.7",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.2",
@@ -57,7 +60,10 @@
   "commandCheck": {
     "node": true
   },
-  "repository": "git@github.com:ystarlongzi/command-check.git",
-  "author": "流采 <zhangzilong.zzl@163.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/ystarlongzi/command-check",
+  "author": "ystarlongzi <zhangzilong.zzl@163.com>",
   "license": "MIT"
 }
