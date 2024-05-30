@@ -5,13 +5,16 @@ import { program } from 'commander';
 import fsEx from 'fs-extra';
 import ora from 'ora';
 import { commandCheck } from './commandCheck';
-import { readConfig } from './readConfig';
+import { DEFAULT_CONFIG_FILE_PATH, readConfig } from './readConfig';
 
 const pkg = fsEx.readJsonSync(nodePath.resolve(__dirname, '../package.json'));
 
 program
   .version(pkg.version, '-v, --version')
-  .option('-f, --file', 'config file path')
+  .option(
+    '-f, --file [file]',
+    `configuration file path. default: ${DEFAULT_CONFIG_FILE_PATH}`,
+  )
   .action((options) => {
     const spinner = ora({ color: 'yellow' }).start('reading config...');
     const config = readConfig(options.file);

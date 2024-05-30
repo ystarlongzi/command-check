@@ -4,7 +4,7 @@ import fsEx from 'fs-extra';
 
 import { CommandCheckOptions } from './commandCheck';
 
-const DEFAULT_CONFIG_FILE_PATH = './command-check.json';
+export const DEFAULT_CONFIG_FILE_PATH = './command-check.json';
 
 export function readConfig(
   path = DEFAULT_CONFIG_FILE_PATH,
@@ -19,5 +19,5 @@ export function readConfig(
     nodePath.resolve(process.cwd(), './package.json'),
   );
 
-  return pkg.commandCheck;
+  return pkg['command-check'];
 }
